@@ -1,19 +1,22 @@
 class Memora < Formula
   desc "Another spaced repetition flashcard app"
   homepage "https://github.com/jpalardy/memora"
-  url "https://github.com/jpalardy/memora/archive/1.2.1.tar.gz"
-  sha256 "345b9d35920d581391f7941f0667ab88e55134fde4721e82f9c95e93ef9350ae"
+  url "https://github.com/jpalardy/memora/archive/1.3.1.tar.gz"
+  sha256 "18db6ceebe155b34eba767d9841599a972fea4c5e8ae95272e9154459c7defdf"
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    system "go", "build", "-ldflags", "-X main.ASSETS_DIR=#{pkgshare}/assets -X main.VERSION=#{version}", "-o", "memora", "github.com/jpalardy/memora"
-    bin.install "memora"
-    pkgshare.install "assets"
+    (buildpath/"src/github.com/jpalardy/memora").install buildpath.children
+    cd "src/github.com/jpalardy/memora" do
+      system "go", "build", "-ldflags", "-X main.ASSETS_DIR=#{pkgshare}/assets -X main.VERSION=#{version}", "-o", "bin/memora"
+      bin.install "bin/memora"
+      pkgshare.install "assets"
+    end
   end
 
   test do
-    system "memora", "-h"
+    system "memora", "-version"
   end
 end
