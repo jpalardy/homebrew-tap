@@ -3,15 +3,16 @@
 
 This repository contains personal Homebrew recipes.
 
-
 ## How to install?
 
+Formula, directly:
+
+    > brew install jpalardy/tap/memora  # for example
+
+Tap, then formula:
+
     > brew tap jpalardy/tap
-
-Then:
-
-    > brew install memora  # for example
-
+    > brew install memora               # for example
 
 ## Update
 
