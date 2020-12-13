@@ -18,9 +18,9 @@ Tap, then formula:
 
 Example:
 
-* edit memora.rb
+* edit Formula/memora.rb
 * upgrade version in URL
-* try to install: `brew upgrade ./memora.rb`
+* try to install: `brew upgrade ./Formula/memora.rb` -- watch it fail
 * update sha256
 * git add, commit, push
 
