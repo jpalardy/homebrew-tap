@@ -1,8 +1,8 @@
 class Memora < Formula
   desc "Another spaced repetition flashcard app"
   homepage "https://github.com/jpalardy/memora"
-  url "https://github.com/jpalardy/memora/archive/2.4.1.tar.gz"
-  sha256 "19f5608b695b524581b365143a914cc81e152d2ced65d8744189979935fdf208"
+  url "https://github.com/jpalardy/memora/archive/2.5.0.tar.gz"
+  sha256 "8b5649b212eade77c728292f0c0a842924899d8e2e373b1f28494b884342a717"
 
   depends_on "go" => :build
 
