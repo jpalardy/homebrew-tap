@@ -20,7 +20,7 @@ Example:
 
 * edit Formula/memora.rb
 * upgrade version in URL
-* try to install: `brew upgrade ./Formula/memora.rb` -- watch it fail
+* try to install: `brew install ./Formula/memora.rb` -- watch it fail
 * update sha256
 * git add, commit, push
 
