@@ -1,17 +1,18 @@
 class Memora < Formula
   desc "Another spaced repetition flashcard app"
   homepage "https://github.com/jpalardy/memora"
-  url "https://github.com/jpalardy/memora/archive/3.5.0.tar.gz"
+  url "https://github.com/jpalardy/memora/archive/refs/tags/3.5.0.tar.gz"
   sha256 "2316c7f773d4cdef49d2ef8c3d686b4eea3a15d27963e87be1f90a5946eff995"
+  license "MIT"
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-X github.com/jpalardy/memora/cmd.VERSION=#{version}", "-o", "bin/memora"
-    bin.install "bin/memora"
+    ldflags = "-s -w -X github.com/jpalardy/memora/cmd.VERSION=#{version}"
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
-    system "memora", "--version"
+    assert_match version.to_s, shell_output("#{bin}/memora --version")
   end
 end
