@@ -16,13 +16,17 @@ Tap, then formula:
 
 ## Update
 
-Example:
+Steps:
 
 * edit Formula/memora.rb
 * upgrade version in URL
-
-curl -sL $(awk -F'"' '/tar.gz/ {print $2}' Formula/memora.rb) -o - | shasum -a 256
-
 * update sha256
 * git add, commit, push
+
+Test:
+* make untap
+* make tap
+* make check
+* make reinstall
+* make untap
 

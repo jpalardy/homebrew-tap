@@ -23,3 +23,9 @@ check:
 
 reinstall: tap
 	brew reinstall --build-from-source --verbose jpalardy-local/tap/memora
+
+sha256:
+	grep sha256 Formula/memora.rb
+	curl -sL $$(awk -F'"' '/tar.gz/ {print $$2}' Formula/memora.rb) -o - | shasum -a 256
+
+
